@@ -15,3 +15,18 @@ app.get("/", (req, res) => {
 });
 
 // product routes
+
+app.use(notFoundMiddleware);
+app.use(errorMiddleware);
+
+const PORT = process.env.PORT || 3000;
+
+const start = async () => {
+  try {
+    //connect db
+    app.listen(PORT, console.log(`Server is listening...`));
+  } catch (error) {
+    console.log(error);
+  }
+};
+start();
