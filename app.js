@@ -6,6 +6,8 @@ const app = express();
 // DB connect
 const connectDB = require("./db/connect");
 
+const productsRoutes = require("./routes/productsRoutes");
+
 const notFoundMiddleware = require("./middleware/not-found");
 const errorMiddleware = require("./middleware/error-handler");
 
@@ -13,6 +15,9 @@ const errorMiddleware = require("./middleware/error-handler");
 app.use(express.json());
 
 // routes
+
+app.use("/api/v1/products", productsRoutes);
+
 app.get("/", (req, res) => {
   res.send("<h1>Store api</h1> <a href='/api/v1/products'>Products routes</a>");
 });
