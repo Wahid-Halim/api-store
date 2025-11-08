@@ -3,6 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
+require("express-async-errors");
+
 // DB connect
 const connectDB = require("./db/connect");
 
